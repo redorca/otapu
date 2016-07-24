@@ -1,0 +1,10 @@
+syntax: glob
+*.o
+*.lo
+*.la
+*.so
+*.swp
+*.bak
+*.rej
+*.sav
+
