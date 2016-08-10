@@ -8,16 +8,19 @@ class Request(object):
     '''
         empty
     '''
-    def __init__(self, ipaddr, rtype):
+    def __init__(self):
         '''
             empty
         '''
+# Figure out the source hosts ip addr, create the socket, done.
+#
+        self.req_type = None
         self.filename = None
-        self.target_ip = ipaddr
-        if rtype == 'write':
-            self.req_type = 'wb'
-        else:
-            self.req_type = 'rb'
+# Reserve these settings for the Read and Write sub classes
+#       if rtype == 'write':
+#           self.req_type = 'wb'
+#       else:
+#           self.req_type = 'rb'
 
     def transfer(self):
         '''
@@ -55,3 +58,25 @@ class Request(object):
 
     def __exit__(self, exc_type, exc_mode, exc_tb):
         self.close()
+
+
+class Read(Request):
+    '''
+        empty
+    '''
+    def __init__(self, ipaddr):
+        self.target = ipaddr
+        self.host = None
+        self.req_type = 'r'
+        Request.__init__(self)
+
+
+class Write(Request):
+    '''
+        empty
+    '''
+    def __init__(self, ipaddr):
+        self.target = ipaddr
+        self.host = None
+        self.req_type = 'w'
+        Request.__init__(self)
