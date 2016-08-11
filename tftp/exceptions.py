@@ -31,7 +31,7 @@ class FileNotFound(TftpException):
     '''
     def __init__(self, pkt):
         TftpException.__init__(self, pkt)
-        self.code = 0
+        self.code = 1
         self.msg = "No such error"
 
 class AccessViolation(TftpException):
@@ -40,8 +40,8 @@ class AccessViolation(TftpException):
     '''
     def __init__(self, pkt):
         TftpException.__init__(self, pkt)
-        self.code = 0
-        self.msg = "No such error"
+        self.code = 2
+        self.msg = "Insufficient privileges provided."
 
 class IllegalOp(TftpException):
     '''
@@ -49,8 +49,8 @@ class IllegalOp(TftpException):
     '''
     def __init__(self, pkt):
         TftpException.__init__(self, pkt)
-        self.code = 0
-        self.msg = "No such error"
+        self.code = 3
+        self.msg = "Illeagl Tftp Opcode."
 
 class OutOfSpace(TftpException):
     '''
@@ -58,8 +58,8 @@ class OutOfSpace(TftpException):
     '''
     def __init__(self, pkt):
         TftpException.__init__(self, pkt)
-        self.code = 0
-        self.msg = "No such error"
+        self.code = 4
+        self.msg = "No more space for transfer."
 
 class UnknownTID(TftpException):
     '''
@@ -67,8 +67,8 @@ class UnknownTID(TftpException):
     '''
     def __init__(self, pkt):
         TftpException.__init__(self, pkt)
-        self.code = 0
-        self.msg = "No such error"
+        self.code = 5
+        self.msg = "Transfer ID from target is unrcognized."
 
 class FileExists(TftpException):
     '''
@@ -76,8 +76,8 @@ class FileExists(TftpException):
     '''
     def __init__(self, pkt):
         TftpException.__init__(self, pkt)
-        self.code = 0
-        self.msg = "No such error"
+        self.code = 6
+        self.msg = "File already exists"
 
 class NoSuchUser(TftpException):
     '''
@@ -85,5 +85,5 @@ class NoSuchUser(TftpException):
     '''
     def __init__(self, pkt):
         TftpException.__init__(self, pkt)
-        self.code = 0
-        self.msg = "No such error"
+        self.code = 7
+        self.msg = "No uid found for transfer."
