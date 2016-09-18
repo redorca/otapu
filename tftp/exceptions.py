@@ -87,3 +87,12 @@ class NoSuchUser(TftpException):
         TftpException.__init__(self, pkt)
         self.code = 7
         self.msg = "No uid found for transfer."
+
+class OptionNegotiation(TftpException):
+    '''
+        No uid found for transfer.
+    '''
+    def __init__(self, pkt):
+        TftpException.__init__(self, pkt)
+        self.code = 8
+        self.msg = "Error negotiating options."
